@@ -1,0 +1,25 @@
+- name: install nodejs
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: nodejs
+
+- name: user-dir-extarct
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: user-dir-extract
+
+- name: install dependencies
+  ansible.builtin.command: npm install 
+  args:
+   chdir: /app 
+
+- name: copy reload
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: copy-daemon-start
+
+- name: load schema
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: load-schema
+   
