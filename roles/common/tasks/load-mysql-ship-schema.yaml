@@ -1,0 +1,12 @@
+- name: install mysql client
+  ansible.builtin.yum:
+    name: mysql
+    state: installed
+
+- name: load schema
+  ansible.builtin.shell: mysql -h mysql.join-devops.online -uroot -pRoboShop@1 < /app/schema/{{component}}.sql 
+
+- name: "restart {{component}}"
+  ansible.builtin.service:
+    name: "{{component}}"
+    state: restarted
