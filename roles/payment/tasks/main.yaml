@@ -1,0 +1,19 @@
+- name: python dependencies
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: python
+
+- name: create user-dir-extract
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: user-dir-extract
+
+- name: install dependencies
+  ansible.builtin.command: pip3.6 install -r requirements.txt
+  args:
+   chdir: /app 
+
+- name: copy reload
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: copy-daemon-start
