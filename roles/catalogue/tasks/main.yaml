@@ -2,3 +2,18 @@
   ansible.builtin.import_role:
    name: common
    tasks_from: nodejs
+
+- name: create user-dir-extract
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: user-dir-extract
+
+- name: install dependencies
+  ansible.builtin.command: npm install 
+  args:
+   chdir: /app 
+
+- name: copy reload
+  ansible.builtin.import_role:
+   name: common
+   tasks_from: copy-daemon-start
