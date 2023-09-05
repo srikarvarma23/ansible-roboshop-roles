@@ -1,5 +1,5 @@
-CATALOGUE: catalogue.join-devops.online
-USER: user.join-devops.online
-CART: cart.join-devops.online
-SHIPPING: shipping.join-devops.online
-PAYMENT: payment.join-devops.online
+CATALOGUE_HOST: catalogue.join-devops.online
+USER_HOST: user.join-devops.online
+CART_HOST: cart.join-devops.online
+SHIPPING_HOST: shipping.join-devops.online
+PAYMENT_HOST: payment.join-devops.online
